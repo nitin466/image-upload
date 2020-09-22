@@ -17,13 +17,9 @@ export class ImageUploadComponent implements OnInit {
 
   onFileChange(event) : void {
     const file = event.target.files[0];
-
-    console.log('selected file :', event.target.result);
-    console.log(this.fileList);
     let reader = new FileReader();
     reader.onload = (event : any) => {
       this.localUrl =  event.target.result;
-      console.log(this.localUrl);
       this.fileList.push({'file': file, 'imageData': event.target.result})
     }
     reader.readAsDataURL(event.target.files[0])
